@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AhamShivam</title>
+    <link rel="shortcut icon" href="./assets/images/bjp.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            padding-top: 100px; /* Adjust based on your header height */
+            padding-bottom: 40px; /* Adjust based on your footer height */
+        }
+        .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+       
+        .submit-button {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-top bg-warning" style="height: 50px;">
+        <h1 class="text-center">Voting System</h1>
+    </header>
+
+    <div class="content container-fluid g-4" style="background: rgb(237, 233, 233);">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="./assets/images/bjp.png" class="card-img-top" alt="BJP Logo">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">BJP</h5>
+                        <p class="card-text">The Bharatiya Janata Party (BJP) is a major political party in India, known for its right-wing, Hindu nationalist ideology.</p>
+                        <strong>Candidate name: Yogi Adityanath</strong>
+                        <h1 class="text-center" style="border: 2px solid black; width: 50%; margin: 10px auto;" id="score1">count</h1>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary w-100" id="btn1">VOTE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="./assets/images/congress.png" class="card-img-top" alt="Congress Logo">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Congress</h5>
+                        <p class="card-text">The Indian National Congress (Congress Party) is one of India's oldest and major political parties, majorly focused on secularism.</p>
+                        <strong>Candidate name: Rahul Gandhi</strong>
+                        <h1 class="text-center" style="border: 2px solid black; width: 50%; margin: 10px auto;" id="score2">count</h1>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary w-100" id="btn2">VOTE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="./assets/images/jsp.jpeg" class="card-img-top" alt="JanaSena Logo">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">JanaSena</h5>
+                        <p class="card-text">JanaSena Party is a regional political party in India, founded by actor-turned-politician Pawan Kalyan in 2014, primarily active in the states of Andhra Pradesh and Telangana.</p>
+                        <strong>Candidate name: Pawan Kalyan</strong>
+                        <h1 class="text-center" style="border: 2px solid black; width: 50%; margin: 10px auto;" id="score3">count</h1>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary w-100" id="btn3">VOTE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center submit-button" id="submit">
+            <div class="col-md-4">
+                <button class="btn btn-primary w-100" id="submit">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="fixed-bottom bg-warning" style="height: 40px; text-align: center; padding-top: 5px;">
+        <p>This is created by Manohar Bhudeti</p>
+    </footer>
+
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/popper.min.js"></script>
+</body>
+</html>
