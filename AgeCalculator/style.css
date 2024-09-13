@@ -1,0 +1,36 @@
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 500px;
+        }
+        .result {
+            font-size: 1.2rem;
+            font-weight: bold;
+
+        }
+
+ /* (Light) Mode */
+body {
+    background-color: white;
+    color: black;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+
+.toggle-button {
+    position: fixed;
+    background-color: white;
+    border-radius: 2rem;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
