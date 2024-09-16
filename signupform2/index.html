@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 >Welcome, </h2>
+        <p>Lets start</p>
+        <form id="signup-form">
+            <!-- Username Field -->
+            <div class="input-group" id="username-group">
+                <label for="username">Enter your username*</label>
+                <div class="input-row">
+                    <input type="text" id="username" required>
+                    <button type="button" class="continue-btn" id="username-continue">Continue</button>
+                </div>
+            </div>
+
+            <!-- Email Field (hidden initially) -->
+            <div class="input-group" id="email-group" style="display: none;">
+                <label for="email">Enter your email*</label>
+                <div class="input-row">
+                    <input type="email" id="email" required>
+                    <button type="button" class="continue-btn" id="email-continue">Continue</button>
+                </div>
+            </div>
+
+            <!-- Password Field (hidden initially) -->
+            <div class="input-group" id="password-group" style="display: none;">
+                <label for="password">Create a password*</label>
+                <div class="input-row">
+                    <input type="password" id="password" required>
+                    <button type="submit" id="submit-button">Continue</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
