@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.13.2/dist/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        body
+        {
+            background-color: rgb(6, 6, 6);
+        }
+        .container
+        {
+            display: flex;
+            justify-content: center;
+        }
+        .card
+        {
+            background-color: yellow;
+        }
+        .inputBox
+        {
+            display: flex;
+            justify-content: center;
+        } 
+        .output
+        {
+            display: flex;
+            justify-content: center;
+        }  
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card p-5">
+            <h1> enter the Nth number to print fibonacci series: </h1>
+            <div class="input">
+                <div class="inputBox">
+                    <input type="text" id="input" placeholder="enetr the number :"></input>
+                    <button class="btn btn-primary">generate series</button>
+                </div>
+  
+               <br>
+               <div class="output" id="output" style="border:2px solid black ">output displays here:</div>
+            </div>
+        </div>
+    </div>
+   
+
+
+
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.13.2/dist/sweetalert2.all.min.js"></script>
+    <script src="./assets/bootstrap.min.js"></script>
+    <script src="./assets/popper.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
