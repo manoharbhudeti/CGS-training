@@ -1,0 +1,19 @@
+body {
+    background-color: #b4e6ed;
+    
+}
+
+h2 {
+    color: #3e10e4;
+
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(247, 241, 241, 0.1);
+
+}
+
+#result {
+    color: #28a745;
+    font-weight: bold;
+}
