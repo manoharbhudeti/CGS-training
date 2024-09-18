@@ -1,0 +1,14 @@
+
+  .box {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.board {
+    max-width: 500px;
+    
+}
