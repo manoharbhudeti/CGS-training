@@ -1,0 +1,83 @@
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  background-color: #508D4E;
+}
+#logo {
+  transition: transform 0.3s ease-in-out; 
+}
+
+#logo:hover {
+  transform: scale(1.1); 
+}
+
+.current-tab
+{
+  color: rgb(20, 86, 184);
+}
+
+.navbar-logo {
+  width: 100px;
+  height: auto;
+  margin-right: 15px;
+}
+.navbar-brand {
+  font-weight: bold;
+  color: #fff;
+}
+.nav-link {
+  color: #ffffff !important;
+}
+.nav-link:hover {
+  color: #f0f0f0 !important;
+}
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.btn-light a {
+  text-decoration: none;
+}
+.container {
+  max-width: 1200px;
+}
+h2, h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+.form-label {
+  font-weight: 500;
+}
+.btn-primary {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.btn-primary:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+.list-group-item {
+  transition: background-color 0.3s ease;
+}
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .col-md-6 {
+      margin-bottom: 30px;
+  }
+  .navbar-brand {
+      font-size: 1rem;
+  }
+  .navbar-logo {
+      width: 80px;
+  }
+}

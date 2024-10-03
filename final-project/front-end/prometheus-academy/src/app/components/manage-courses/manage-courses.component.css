@@ -1,0 +1,134 @@
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    background-color: #508D4E;
+  }
+  .navbar-logo {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+  }
+  .navbar-brand {
+    font-weight: bold;
+    color: #fff;
+  }
+  .nav-link {
+    color: #fff !important;
+  }
+  .nav-link:hover {
+    color: #f0f0f0 !important;
+  }
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+.btn-light a {
+    text-decoration: none; 
+}
+
+.container {
+    max-width: 1200px; 
+}
+
+
+h2, h3 {
+    color: #333; 
+    margin-bottom: 20px; 
+}
+
+
+.form-label {
+    font-weight: 500; 
+}
+
+.btn-primary {
+    background-color: #28a745; 
+    border-color: #28a745; 
+}
+
+.btn-primary:hover {
+    background-color: #218838; 
+    border-color: #1e7e34; 
+}
+
+.list-group-item {
+    transition: background-color 0.3s ease; 
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa; 
+}
+
+.footer {
+    background-color: #343a40; 
+    color: white; 
+    text-align: center; 
+    padding: 10px 0; 
+    position: relative; 
+    bottom: 0; 
+    width: 100%; 
+}
+
+
+@media (max-width: 768px) {
+    .col-md-6 {
+        margin-bottom: 30px; 
+    }
+
+    .navbar-brand {
+        font-size: 1rem; 
+    }
+
+    .navbar-logo {
+        width: 80px; 
+    }
+}
+
+
+html, body {
+    height: 100%; 
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1; 
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .course-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .course-modules {
+    font-size: 0.9rem;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+  }
+  
+  .course-modules i {
+    margin-right: 5px;
+  }
+  
+  .course-actions button {
+    display: flex;
+    align-items: center;
+  }
+  
+  .course-actions button i {
+    margin-right: 5px;
+  }
+  

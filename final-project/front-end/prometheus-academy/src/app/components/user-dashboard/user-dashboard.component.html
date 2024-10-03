@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container-fluid">
+    <img src="./assets/logo.png" id="logo" alt="logo" style="width: 100px; height: fit-content;">
+    <a class="navbar-brand" href="#">Prometheus Academy</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a routerLink="/userdashboard" class="nav-link">My Dashboard</a></li>
+        <li class="nav-item"><a routerLink="/mylearning" class="nav-link">My Learning</a></li>
+        <li class="nav-item"><a routerLink="/allcourses" class="nav-link">All Courses</a></li>
+        <li class="nav-item"><a routerLink="/myprogress" class="nav-link">My Progress</a></li>
+      </ul>
+      <div class="profile ms-auto">
+        <img src="./assets/profilepic.png" alt="profile" style="width: 40px; height: 40px;">
+        <button class="btn btn-success">
+          <a routerLink="/logout" class="text-white text-decoration-none">logout</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div *ngIf="courses.length === 0" class="alert alert-info" role="alert">
+    You haven't enrolled in any courses. Please enroll in any course and get back here!
+    <a class="btn btn-primary" routerLink="/allcourses">Enroll Now</a>
+  </div>
+  
+  <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="courses.length > 0">
+    <div class="col" *ngFor="let course of courses">
+      <div class="card course-card">
+        <img [src]="course.thumbnail" class="card-img-top" [alt]="course.title">
+        <div class="card-body">
+          <h5 class="card-title">{{ course.title }}</h5>
+          <p class="card-text">{{ course.description }}</p>
+          <div class="progress mb-3">
+            <div
+              class="progress-bar d-flex align-items-center justify-content-center"
+              role="progressbar"
+              [style.width]="course.progress + '%'"
+              [attr.aria-valuenow]="course.progress"
+              aria-valuemin="0"
+              aria-valuemax="100">
+              {{ course.progress }}%
+            </div>
+          </div>
+          <div class="btn-group w-100" role="group">
+            <a [routerLink]="['/playlist', course.courseId]">
+              <button class="btn btn-primary" *ngIf="course.progress < 100">Resume</button>
+            </a>
+            <button class="btn btn-success" *ngIf="course.progress === 100">Completed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-3 mt-4" id="footer">
+  © 2024 Prometheus Academy. All rights reserved.
+</footer>

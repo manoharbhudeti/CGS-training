@@ -1,0 +1,82 @@
+<div class="container">
+    
+    <nav class="navbar navbar-expand-lg">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" routerLink="/userdashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" id="current-tab" routerLink="/mylearning">My Learning</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/allcourses">All Courses</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/myprogress">My Progress</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/myaccount">My Account</a></li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="text-center">My Account</h1>
+
+
+    <div class="form-container text-center mt-4">
+        <form (ngSubmit)="onSubmit()">
+    
+            <div class="form-group">
+                <div>
+                    <img id="profileImage" class="profile-pic" src="/assets/profilepic.png" alt="Profile Image Preview">
+                    <div>
+                        <label for="uploadPhoto" class="btn btn-outline-secondary btn-sm profile-upload-btn">
+                            <i class="bi bi-upload"></i> Upload Photo
+                        </label>
+                        <input type="file" id="uploadPhoto" class="d-none" (change)="loadFile($event)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" placeholder="Enter your age" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" class="form-control" id="company" placeholder="Enter your company name" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="phone">Mobile Number</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div> -->

@@ -1,0 +1,90 @@
+<div class="app-container">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <img src="assets/logo.png" alt="logo" class="navbar-logo" id="logo">
+      <a class="navbar-brand" href="#">Prometheus Academy</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item "><a routerLink="/admin" class="nav-link ">Manage Users</a></li>
+          <li class="nav-item"><a routerLink="/managecourses" class="nav-link">Manage Courses</a></li>
+          <li class="nav-item"><a routerLink="/employeeprogress" class="nav-link">Employee Progress</a></li>
+        </ul>
+        <div class="d-flex align-items-center">
+          <img src="./assets/profilepic.png" alt="profile" class="profile-pic me-2">
+          <a routerLink="/logout" ><button class="btn btn-primary text-white"  >Logout</button></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+<div class="container mt-4">
+  <h2>User Management</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>{{ editingUserId ? 'Edit User' : 'Add New User' }}</h3>
+      <form [formGroup]="newUserForm" (ngSubmit)="addUser()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name" [class.is-invalid]="newUserForm.controls['name'].touched && newUserForm.controls['name'].invalid">
+          <div *ngIf="newUserForm.controls['name'].invalid && newUserForm.controls['name'].touched" class="invalid-feedback">
+            Name is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" [class.is-invalid]="newUserForm.controls['email'].touched && newUserForm.controls['email'].invalid">
+          <div *ngIf="newUserForm.controls['email'].invalid && newUserForm.controls['email'].touched" class="invalid-feedback">
+            Please enter a valid email address.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password" [class.is-invalid]="newUserForm.controls['password'].touched && newUserForm.controls['password'].invalid">
+          <div *ngIf="newUserForm.controls['password'].invalid && newUserForm.controls['password'].touched" class="invalid-feedback">
+            Password must be at least 6 characters long.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="role" class="form-label">User Role</label>
+          <select class="form-select" id="role" formControlName="role">
+            <option value="" disabled selected>Select a role</option>
+            <option value="admin">Admin</option>
+            <option value="junior engineering">intern</option>
+            <option value="sr engineering">developer</option>
+          </select>
+          <div *ngIf="newUserForm.controls['role'].invalid && newUserForm.controls['role'].touched" class="invalid-feedback">
+            Please select a user role.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="newUserForm.invalid">{{ editingUserId ? 'Update User' : 'Add User' }}</button>
+        <button type="button" class="btn btn-secondary ms-2" (click)="cancelEdit()" *ngIf="editingUserId">Cancel Edit</button> <!-- Cancel Edit button -->
+      </form>
+    </div>
+    
+    <div class="col-md-6">
+      <h3>Existing Users</h3>
+      <ul class="list-group">
+        <li *ngFor="let user of users" class="list-group-item d-flex justify-content-between align-items-center">
+          {{ user.name }} ({{ user.email }}) 
+          <div>
+            <button class="btn btn-warning btn-sm me-2" (click)="editUser(user)">Edit</button> 
+            <button class="btn btn-danger btn-sm" (click)="deleteUser(user)">Delete</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<footer class="footer mt-auto py-3 bg-dark text-white text-center">
+  <div class="container">
+    <span>© {{ currentYear }} Prometheus Academy. All rights reserved.</span>
+  </div>
+</footer> -->

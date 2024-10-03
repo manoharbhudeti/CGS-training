@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,3 +39,45 @@
     <script src="./assets/popper.min.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pineapple music</title>
+    <link rel="icon" href="./assets/pineapple.logo2.png" type="image/x-icon">
+    
+    <link href="./assets/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="text text-center mb-4">
+        <img src="./assets/pineapple.logo.png" alt="Logo" class="logo">
+
+    </header>
+
+    <div class="container mt-5">
+        <h1 class="text-center fw-bold text-white">search music</h1>
+        <div class="input-group mb-3">
+            <input type="text" id="searchSong" class="form-control" placeholder="Search for songs or artists">
+            <button class="btn btn-primary" id="searchButton">Search</button>
+        </div>
+        <div id="results" class="row"></div>
+    </div>
+
+    <div class="audio-player-bottom">
+        <button class="btn btn-light prev-btn"><i class="fas fa-step-backward"></i></button>
+        <button class="btn btn-light play-btn"><i class="fas fa-play"></i></button>
+        <button class="btn btn-light next-btn"><i class="fas fa-step-forward"></i></button>
+        <input type="range" class="seek-bar" value="0" max="100">
+        <span class="current-track">No track playing</span>
+    </div>
+
+    <script src="./main.js"></script>
+    <script src="./assets/bootstrap.min.js"></script>
+    <script src="./assets/popper.min.js"></script>
+</body>
+</html>
+
