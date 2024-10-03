@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container-fluid">
+    <img src="./assets/logo.png" alt="logo" style="width: 100px; height: fit-content;">
+    <a class="navbar-brand" href="#">Prometheus Academy</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a routerLink="/userdashboard" class="nav-link">My Dashboard</a></li>
+        <li class="nav-item"><a routerLink="/mylearning" class="nav-link">My Learning</a></li>
+        <li class="nav-item"><a routerLink="/allcourses" class="nav-link">All Courses</a></li>
+        <li class="nav-item"><a routerLink="/myprogress" class="nav-link">My Progress</a></li>
+      </ul>
+      <div class="profile ms-auto">
+        <img src="./assets/profilepic.png" alt="profile" style="width: 40px; height: 40px;">
+        <button class="btn btn-success">
+          <a routerLink="/logout" class="text-white text-decoration-none">logout</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid playlist-container">
+  <div class="row">
+    <div class="col-md-4 video-list">
+      <h2>Videos in Playlist</h2>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let video of videos; let i = index"
+          (click)="selectVideo(video)"
+          [ngClass]="{
+            'completed': isModuleCompleted(i + 1), 
+            'active': video === selectedVideo
+          }"
+        >
+          <h3 class="h6">{{ video.snippet.title }}</h3>
+          <span *ngIf="isModuleCompleted(i + 1)" class="completed-status badge bg-success">
+            ✔ Completed
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-8 video-player" *ngIf="selectedVideo">
+      <div class="embed-responsive embed-responsive-16by9 video-container">
+        <iframe
+          class="embed-responsive-item"
+          [src]="getSafeUrl(selectedVideo.snippet.resourceId.videoId)"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="course-info mt-3 text-center">
+        <h3>{{ selectedVideo.snippet.title }}</h3>
+        <p>{{ courseDetails }}</p>
+
+        <button
+          class="btn btn-success mt-2"
+          (click)="markAsCompleted()"
+          [disabled]="isSelectedVideoCompleted()"
+        >
+          {{ isSelectedVideoCompleted() ? 'Already Completed' : 'Mark as Completed' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12" *ngIf="errorMessage">
+    <p class="error-message alert alert-danger">{{ errorMessage }}</p>
+  </div>
+
+  
+  <div class="col-12" *ngIf="videos.length === 0 && !errorMessage">
+    <p class="alert alert-info">No videos found in this playlist.</p>
+  </div>
+</div>

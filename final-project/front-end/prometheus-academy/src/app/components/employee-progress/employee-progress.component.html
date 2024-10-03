@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-dark ">
+  <div class="container-fluid">
+    <img src="assets/logo.png" alt="logo" id="logo" class="navbar-logo">
+    <a class="navbar-brand" href="#">Prometheus Academy</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a routerLink="/admin" class="nav-link">Manage Users</a></li>
+        <li class="nav-item"><a routerLink="/managecourses" class="nav-link">Manage Courses</a></li>
+        <li class="nav-item"><a routerLink="/employeeprogress" class="nav-link">Employee Progress</a></li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <img src="./assets/profilepic.png" alt="profile" class="profile-pic me-2">
+        <button class="btn btn-primary text-white" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>User Progress</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Username</th>
+        <th>Course Name</th>
+        <th>Progress</th>
+        <th>Completion Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userId }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.courseName }}</td>
+        <td>{{ user.progress }}%</td>
+        <td>{{ user.completionDate }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="openModal(user)">
+            View Certificate
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="certificateModalLabel">Certificate of Completion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="assets/logo.png" alt="Logo" class="mb-3 d-block mx-auto" style="width: 150px;">
+          <h4 class="text-center mt-3">Prometheus Academy</h4>
+          <h3 class="text-center mt-3">Certificate of Completion</h3>
+          <h4 class="text-center mt-3">{{ selectedUser?.username }}</h4>
+          <p class="text-center mt-3"><strong>User ID:</strong> {{ selectedUser?.userId }}</p>
+          <p class="text-center mt-3"><strong>Course Completed:</strong> {{ selectedUser?.courseName }}</p>
+          <p class="text-center mt-3"><strong>Completion Date:</strong> {{ selectedUser?.completionDate }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="generatePDF()">Download Certificate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

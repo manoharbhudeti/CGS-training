@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="./assets/logo.png" alt="logo" id="logo" class="me-2" style="width: 50px; height: 50px;">
+      Prometheus Academy
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a routerLink="/userdashboard" class="nav-link">My Dashboard</a></li>
+        <li class="nav-item"><a routerLink="/mylearning" class="nav-link">My Learning</a></li>
+        <li class="nav-item"><a routerLink="/allcourses" class="nav-link">All Courses</a></li>
+        <li class="nav-item"><a routerLink="/myprogress" class="nav-link active">My Progress</a></li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <img src="./assets/profilepic.png" alt="profile" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+        <button class="btn btn-success">
+          <a routerLink="/logout" class="text-white text-decoration-none">Log out</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">My Progress</h2>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Course Name</th>
+          <th>Course ID</th>
+          <th>Progress</th>
+          <th>Completion Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses" class="align-middle">
+          <td>{{ course.title }}</td>
+          <td>{{ course.courseId }}</td>
+          <td>
+            <div class="progress clickable" (click)="openProgressChart(course.progress)">
+              <div class="progress-bar bg-success" [style.width]="course.progress + '%'">
+                {{ course.progress }}%
+              </div>
+            </div>
+          </td>
+          <td>
+            <button *ngIf="course.progress === 100"  (click)="openCertificateModal(course)" class="btn btn-outline-success">View Certificate</button>
+            <span *ngIf="course.progress !== 100" class="text-warning">In Progress</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="chartModal" class="modal fade" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="chartModalLabel">Course Progress</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <canvas id="progressChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="certificateModal" class="modal fade" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="certificateModalLabel" class="modal-title text-center w-100">Certificate of Completion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="certificateLogo" src="./assets/logo.png" class="img-fluid" style="width: 150px;" alt="Prometheus Academy Logo">
+        <h4 class="mt-3">{{ selectedCourse?.username }}</h4>
+        <p><strong>User ID:</strong> {{ selectedCourse?.userId }}</p>
+        <p><strong>Course Completed:</strong> {{ selectedCourse?.courseName }}</p>
+        <p><strong>Completion Date:</strong> {{ selectedCourse?.completionDate }}</p>
+        <p>Congratulations on completing the course!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="downloadCertificate()">Download Certificate</button>
+      </div>
+    </div>
+  </div>
+</div>

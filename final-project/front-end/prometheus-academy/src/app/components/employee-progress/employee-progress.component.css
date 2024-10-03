@@ -1,0 +1,98 @@
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    background-color: #508D4E;
+    padding: 15px 20px; 
+}
+
+.navbar-logo {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.5rem; 
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+.nav-link:hover {
+    color: #f0f0f0 !important; 
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 15px; 
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.modal-body img {
+    width: 150px;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+
+h2, h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.list-group-item {
+    transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+
+@media (max-width: 768px) {
+    .col-md-6 {
+        margin-bottom: 30px;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .navbar-logo {
+        width: 80px; 
+    }
+}

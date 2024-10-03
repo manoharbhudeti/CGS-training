@@ -1,0 +1,97 @@
+#body {
+  height: 100vh;
+  background-image: url(/assets/bg_color.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main {
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px; 
+}
+
+#leftbar {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#logo {
+  width: 80%;
+  transition: transform 0.3s ease;
+}
+
+#logo:hover {
+  transform: scale(1.05);
+}
+
+.login-title {
+  color: #1d1e1f;
+  font-weight: bold;
+}
+
+.input-group-text {
+  background-color: white;
+}
+
+.icon-hover {
+  transition: color 0.3s ease;
+}
+
+.icon-hover:hover {
+  color: #007bff;
+}
+
+.btn {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-outline-primary {
+  border-color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.Roles {
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  #leftbar {
+    text-align: center;
+  }
+
+  #logo {
+    width: 70%;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  #main {
+    flex-direction: column; 
+    padding: 20px;
+  }
+}
